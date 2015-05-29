@@ -135,7 +135,7 @@ class EnvInspector
 
     body = html_content + extra_content
 
-    [200, {}, [body]]
+    [200, {'Content-Type' => 'text/html'}, [body]]
   end
 end
 
