@@ -18,7 +18,7 @@ end
 
 class RequestHandler
 
-  attr_accessor :sd, :host, :uri, :qs, :ptags, :zone
+  attr_accessor :sd, :host, :uri, :qs, :ptags, :zone, :site
 
   def initialize(request, env)
 
@@ -114,9 +114,9 @@ class EnvInspector
     extra_content = ''
 
     if handle.zone == 'rect'
-      extra_content = extra_content + "window.rectangle_unit = googletag.defineSlot('/8905/<?php echo $site; ?>/profile', [[300, 250],[300, 600],[300, 1050]], 'rectangle').addService(googletag.pubads()).setCollapseEmptyDiv(true).setTargeting('pos', '1').defineSizeMapping(mapRectangleAd);"
+      extra_content = extra_content + "window.rectangle_unit = googletag.defineSlot('/8905/" + handle.site + "/profile', [[300, 250],[300, 600],[300, 1050]], 'rectangle').addService(googletag.pubads()).setCollapseEmptyDiv(true).setTargeting('pos', '1').defineSizeMapping(mapRectangleAd);"
     elsif handle.zone == 'leader'
-      extra_content = extra_content + "window.leaderboard_unit = googletag.defineSlot('/8905/<?php echo $site; ?>/profile', [728, 90], 'leaderboard').addService(googletag.pubads()).setCollapseEmptyDiv(true).setTargeting('pos', '1').defineSizeMapping(mapLeaderAd);"
+      extra_content = extra_content + "window.leaderboard_unit = googletag.defineSlot('/8905/" + handle.site + "/profile', [728, 90], 'leaderboard').addService(googletag.pubads()).setCollapseEmptyDiv(true).setTargeting('pos', '1').defineSizeMapping(mapLeaderAd);"
     end
 
     if handle.ptags
