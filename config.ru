@@ -123,7 +123,7 @@ class EnvInspector
       extra_content = extra_content + "googletag.pubads().setTargeting(\"ptag\", \"" + handle.ptags + "\");"
     end
 
-    extra_content = extra_content + "googletag.pubads().enableSingleRequest(); googletag.enableServices(); </script> </head> <body>"
+    extra_content = extra_content + "googletag.pubads().enableSingleRequest(); googletag.enableServices(); }); </script> </head> <body>"
 
     if handle.zone == 'leader'
       extra_content = extra_content + "<div class=\"col-md-10\" id=\"leaderboard\"> <script type='text/javascript'> <!-- googletag.cmd.push(function() { googletag.display('leaderboard'); }); // --> </script> </div>"
